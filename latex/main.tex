@@ -13,7 +13,7 @@
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
-\title{Geophysical Dynamic Fluid}
+\title{Geophysical Fluid Dynamic}
 \author{Wang ZY} % Your name
 
 \begin{document}
@@ -1211,6 +1211,72 @@ Burger数，$\mathcal{B} = (Ro/Fr)^2 = (R/L)^2$，
 表征重力（浮力）和科氏力的相对大小，是Rossby变形半径和特征长度比值的平方，
 表征旋转和层结的相对大小。
 
+从而将动量方程转化成无量纲的形式：
+$$Ro(\frac{\partial u^*}{\partial t^*} 
++ u^*\frac{\partial u^*}{\partial x^*}
++ v^*\frac{\partial u^*}{\partial y^*}) - v^* - \epsilon \beta^*y^*v^* 
+= -\frac{\partial p^* }{\partial x^*} + \epsilon F_x^*$$
+
+$$Ro(\frac{\partial v^*}{\partial t^*} 
++ u^*\frac{\partial v^*}{\partial x^*}
++ v^*\frac{\partial v^*}{\partial y^*}) + u^* + \epsilon \beta^*y^*u^* 
+= -\frac{\partial p^* }{\partial y^*} + \epsilon F_y^*$$
+
+$$\varepsilon \frac{\partial {{\eta }^{*}}}{\partial {{t}^{*}}}
++\varepsilon \left[ \frac{\partial }{\partial {{x}^{*}}}({{\eta }^{*}}
+-{{B}^{*}}){{u}^{*}}+\frac{\partial }{\partial {{y}^{*}}}({{\eta }^{*}}
+-{{B}^{*}}){{v}^{*}} \right]
+=-\left( \frac{\partial {{u}^{*}}}{\partial {{x}^{*}}}
++\frac{\partial {{v}^{*}}}{\partial {{y}^{*}}} \right)$$
+
+而对于无量纲形式的位势涡度：
+\begin{align*}    
+    q^* & =\frac{1+\varepsilon\beta^*y^*+\varepsilon\mathcal{B}\nabla^{*2}\eta^*}{1+\varepsilon(\eta^*-B^*)} \\     
+    & \approx \left[ 1-\varepsilon\left( \eta^*-B^* \right) \right]\left( 1+\varepsilon\beta^*y^*+\varepsilon\mathcal{B}\nabla^{*2}\eta^* \right) \\    
+    & = 1+\varepsilon\beta^*y^*+\varepsilon\mathcal{B}\nabla^{*2}\eta^*-\varepsilon\left( \eta^*-B^* \right) + O(\varepsilon^2) \\    
+    & = 1+\varepsilon\left[ \mathcal{B}\nabla^{*2}\eta^* - \eta^* + \beta^*y^* + B^* \right] + O(\varepsilon^2)
+\end{align*}
+
+得到准地转位涡：
+\begin{align*}    
+    q^*_{QG} & =\mathcal{B}\nabla^{*2}\eta^* - \eta^* + \beta^*y^* + B^* \\
+        & = \nabla^{*2}\psi^* - \mathcal{B}^-1\psi^* + \beta^*y^*+B^*
+\end{align*}
+
+无量纲位势涡度方程：
+$$\left( \frac{\partial }{\partial {{t}^{*}}}
++{{J}^{*}}\left[ {{\psi }^{*}},\ \  \right] \right)q_{QG}^{*}
+={{F}^{*}}$$
+
+当不考虑$\beta$效应及地形影响的时候，$\beta = B = 0$，
+，此时准地转模式的正交模态退化为地转模态。
+$$ q^*_{QG}= \nabla^{*2}\psi^* - \mathcal{B}^-1\psi^*$$
+
+将$\psi = \psi_0e^{i(kx+ly-\omega t)}$代入到：
+$$\left[ \frac{\partial }{\partial t}-\frac{\partial \psi }{\partial y}\frac{\partial }{\partial x}+\frac{\partial \psi }{\partial x}\frac{\partial }{\partial y} \right]\left( {{\nabla }^{2}}\psi -{{\mathcal{B}}^{-1}}\psi  \right)=0$$
+
+可以解得$\omega = 0$，即为地转模态。
+
+准地转位涡中的各项分别代表：
+
+正压效应：
+$$ \nabla^{*2}\psi^* $$
+
+斜压效应（层结）：
+$$- \mathcal{B}^-1\psi^*$$
+
+在斜压的连续模型下，表示为：
+$$\frac{\partial}{\partial z}(\frac{f^2}{N^2}\frac{\partial\psi}{\partial z})
+= -\frac{f^2}{(NH)^2}\psi
+= -\frac{1}{R^2}\psi$$
+
+地转效应：
+$$\beta^*y^*$$
+
+地形效应：
+$$B^*$$
+
+
 \subsection{Rossby波}
 Rossby波（行星波）是由于地球旋转时$\beta$效应而产生的，同样，由于下边界斜率$\nabla B$而形成的准地转波称为地形Rossby波。
 
@@ -2026,17 +2092,17 @@ $$\frac{d}{dt}\iiint\zeta dxdydz
 $$\frac{d}{dt}\iiint\zeta dxdydz
 = f\iint  w(-\infty) dxdy$$
 
-得到，在北半球，在海表Ekman抽吸为正时，涡度增大，涡度气旋性加强；
-海表Ekman抽吸为负时，涡度降低，涡度气旋性减弱。
-在南半球，在海表Ekman抽吸为正时，涡度减小，涡度气旋性加强；
-海表Ekman抽吸为负时，涡度减弱，涡度气旋性减弱。
+得到，在北半球，在海表Ekman抽吸为正时，涡度增大，涡度气旋性加强，反气旋减弱；
+海表Ekman抽吸为负时，涡度降低，涡度气旋性减弱，反气旋增强。
+在南半球，在海表Ekman抽吸为正时，涡度减小，涡度气旋性加强，反气旋减弱；
+海表Ekman抽吸为负时，涡度减弱，涡度气旋性减弱，反气旋增强。
 
 将Ekman抽吸写成气旋的形式：
 $$\frac{d}{dt}\iiint\zeta dxdydz
 =\iint\hat{k}\cdot \nabla \times \left[ \frac{{{\tau }_{s}}}{{{\rho }_{0}}} \right]dxdy$$
 
-可以得到，当海表风应力旋度和气旋方向一致时，气旋性加强；
-当海表风应力旋度和气旋方向相反时，气旋性减弱。
+可以得到，当海表风应力旋度和气旋方向一致时，气旋性加强，反气旋减弱；
+当海表风应力旋度和气旋方向相反时，气旋性减弱，反气旋增强。
 
 \textbf{2. 假定观测$w^{obs}$，该观测的演变由一个线性方程所描述，
 即$\frac{dw^{obs}}{dt} = Aw^{obs} + F$，其中矩阵$A$是$n\times n$实数矩阵，

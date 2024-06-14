@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.5.9)  14 JUN 2024 17:27
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.5.9)  14 JUN 2024 23:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -559,29 +559,29 @@ File: Fig3_2.png Graphic file (type bmp)
  [24] [25]
 File: Fig3_3.png Graphic file (type bmp)
 <Fig3_3.png>
- [26] [27] [28] [29] [30]
+ [26] [27] [28] [29] [30] [31]
 Missing character: There is no β (U+03B2) in font [lmroman10-regular]:mapping=tex-text;!
-[31] [32] [33]
+[32] [33] [34]
 File: Fig4_1.png Graphic file (type bmp)
 <Fig4_1.png>
- [34] [35]
+ [35] [36]
 File: Fig4_2.png Graphic file (type bmp)
 <Fig4_2.png>
- [36] [37]
+ [37] [38]
 File: Fig4_3.png Graphic file (type bmp)
 <Fig4_3.png>
- [38] [39] [40] [41] [42] [43] [44]
+ [39] [40] [41] [42] [43] [44] [45]
 File: Fig5_2.png Graphic file (type bmp)
 <Fig5_2.png>
- [45]
+ [46]
 File: Fig5_1.png Graphic file (type bmp)
 <Fig5_1.png>
 File: Fig5_3.png Graphic file (type bmp)
 <Fig5_3.png>
- [46] [47]
+ [47] [48]
 File: Fig5_4.png Graphic file (type bmp)
 <Fig5_4.png>
- [48] [49] [50] (./main.aux)
+ [49] [50] [51] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -595,12 +595,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5EE55AFEEFB8AD828A6A7ECC51A0B774;9790.
  ) 
 Here is how much of TeX's memory you used:
- 15379 strings out of 474772
- 341506 string characters out of 5761269
+ 15390 strings out of 474772
+ 342179 string characters out of 5761269
  1950842 words of memory out of 5000000
- 37305 multiletter control sequences out of 15000+600000
+ 37316 multiletter control sequences out of 15000+600000
  565323 words of font info for 88 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,14n,97p,581b,413s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (50 pages).
+Output written on main.pdf (51 pages).
