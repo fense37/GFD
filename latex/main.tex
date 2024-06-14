@@ -1994,8 +1994,6 @@ $$\frac{\partial \psi }{\partial x}=A\sin \left[ \frac{2\pi y}{{{L}_{y}}} \right
 \subsection{课后习题}
 \textbf{1. 讨论海表Ekman抽吸如何影响海洋内层气旋的变化，并给出原因。}
 
-涡旋减弱（spin down）：
-
 海表为刚盖，无限深处考虑Ekman抽吸：
 $$w(-\infty) = \int_{-\infty}^0(\frac{\partial u}{\partial x} 
 + \frac{\partial v}{\partial y})dz$$
@@ -2011,7 +2009,7 @@ $$w(-\infty) = \int_{-\infty}^0(\frac{\partial u}{\partial x}
 可以解得Ekman抽吸：
 $$w(-\infty)={{w}_{ek,top}}=\hat{k}\cdot \nabla \times \left[ \frac{{{\tau }_{s}}}{{{\rho }_{0}}f} \right]$$
 
-考虑海洋中存在一个涡旋，满足正压涡度方程，且无外力作用：
+考虑海洋内层存在一个涡旋，远离海表，满足正压涡度方程，风应力对其无外力作用：
 $$\frac{\partial(\zeta+f)}{\partial t} + \nabla_h\cdot((f+\zeta)\vec{u})
  = \frac{\partial(\zeta+f)}{\partial t} + \nabla_h\cdot\zeta\vec{u}
  + \nabla_h\cdot f\vec{u}=0$$
@@ -2020,24 +2018,40 @@ $$\frac{\partial(\zeta+f)}{\partial t} + \nabla_h\cdot((f+\zeta)\vec{u})
 $$\frac{\partial\zeta}{\partial t} + \nabla_h(\zeta\vec{u})
 =-\beta v +f\frac{\partial w}{\partial z}$$
 
-在涡旋区域内积分，假设涡度在涡旋边界的通量为0，得到：
+在涡旋区域内积分，假设涡旋在Ekman层以下，Ekman抽吸作用在涡旋表层，得到：
 $$\frac{d}{dt}\iiint\zeta dxdydz
-=-\beta\iiint v dxdydz + f\iint w(0) - w(-\infty) dxdy$$
+=-\beta\iiint v dxdydz + f\iint w(-\infty) dxdy$$
 
 假设风应力远大于地转效应，得到涡度变化：
 $$\frac{d}{dt}\iiint\zeta dxdydz
-=- f\iint  w(-\infty) dxdy$$
+= f\iint  w(-\infty) dxdy$$
 
-得到，在北半球，在海表Ekman抽吸为正时，涡度降低，涡度气旋性减弱；
-海表Ekman抽吸为负时，涡度增大，涡度气旋性加强。
-在南半球，在海表Ekman抽吸为正时，涡度增大，涡度气旋性减弱；
-海表Ekman抽吸为负时，涡度降低，涡度气旋性加强。
+得到，在北半球，在海表Ekman抽吸为正时，涡度增大，涡度气旋性加强；
+海表Ekman抽吸为负时，涡度降低，涡度气旋性减弱。
+在南半球，在海表Ekman抽吸为正时，涡度减小，涡度气旋性加强；
+海表Ekman抽吸为负时，涡度减弱，涡度气旋性减弱。
 
 将Ekman抽吸写成气旋的形式：
 $$\frac{d}{dt}\iiint\zeta dxdydz
-=-\iint\hat{k}\cdot \nabla \times \left[ \frac{{{\tau }_{s}}}{{{\rho }_{0}}} \right]dxdy$$
+=\iint\hat{k}\cdot \nabla \times \left[ \frac{{{\tau }_{s}}}{{{\rho }_{0}}} \right]dxdy$$
 
-可以得到，当海表风应力旋度和气旋方向一致时，气旋性减弱；
-当海表风应力旋度和气旋方向相反时，气旋性增强。
+可以得到，当海表风应力旋度和气旋方向一致时，气旋性加强；
+当海表风应力旋度和气旋方向相反时，气旋性减弱。
+
+\textbf{2. 假定观测$w^{obs}$，该观测的演变由一个线性方程所描述，
+即$\frac{dw^{obs}}{dt} = Aw^{obs} + F$，其中矩阵$A$是$n\times n$实数矩阵，
+外强迫F是n维物理向量，设计该观测的预报模式，给出预报误差发展的控制方程，
+并分析预报误差的来源}
+
+对于预报$t_{n+1}$时刻的观测，将预报方程写成差分格式，有：
+$$\frac{w_{n+1} - w_{n}}{\Delta t} = Aw_{n} + F_n$$
+$$w_{n+1} = (I_n+\Delta tA)w_{n} + \Delta tF_n$$
+
+即根据$t_0$时刻的观测，可以推演到$t_{n+1}$时刻的观测。
+
+将该方程和观测演变方程相减，得到预报误差的发展方程：
+$$\frac{d\delta w}{dt} = A\delta w$$
+
+预报的误差来自多个方面，初始误差，强迫场误差，模式误差。
 
 \end{document}
