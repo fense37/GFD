@@ -833,7 +833,7 @@ $$\bar{u}(y)=\begin{cases}
 $$\psi^{\prime}=real\left(\Psi(y)e^{ikx+st}\right)$$
 
 根据扰动的涡度为$0$，可以求出扰动的特征方程：
-$$s^2=\left(\frac{kU}{2}\right)^2\left(2\frac{1+(1+(kD)^{-1})tanh[kD]}{kD(1+tanh(kD))}-1\right)$$
+$$s^2=\left(\frac{kU}{2}\right)^2\left(2\frac{1+(1-(kD)^{-1})tanh[kD]}{kD(1+tanh(kD))}-1\right)$$
 
 当$kD\rightarrow0$时，$s^2\rightarrow(kU/2)^2$只有实部，扰动不稳定增长或衰减；当$kD \rightarrow \infty$时，$s^2 \rightarrow -(kU/2)^2$，此时扰动稳定。
 
@@ -1211,36 +1211,60 @@ Burger数，$\mathcal{B} = (Ro/Fr)^2 = (R/L)^2$，
 表征重力（浮力）和科氏力的相对大小，是Rossby变形半径和特征长度比值的平方，
 表征旋转和层结的相对大小。
 
+做量纲分析则有：
+\begin{align}
+&x,y\sim L, \ \ \ u,v\sim V \\ 
+&h\sim H_0, \ \ \ t\sim \frac{L}{V}\\
+&f\sim f_0, \ \ \ p\sim \rho_0Vf_0L_0\\
+&\eta,B\sim \epsilon H_0, \ \ \ \beta=\frac{df}{dy}\sim \epsilon\frac{f_0}{L}\\
+&w\sim \epsilon\frac{VH_0}{L}, \ \ \ F\sim \epsilon f_0V
+\end{align}
+
+值得注意的是，这里的垂向速度前的$\epsilon$，是在对动量方程简化后，
+零阶的水平速度满足地转关系得出二维正压，从而零阶的垂向速度为0，
 从而将动量方程转化成无量纲的形式：
 $$Ro(\frac{\partial u^*}{\partial t^*} 
 + u^*\frac{\partial u^*}{\partial x^*}
 + v^*\frac{\partial u^*}{\partial y^*}) - v^* - \epsilon \beta^*y^*v^* 
-= -\frac{\partial p^* }{\partial x^*} + \epsilon F_x^*$$
+= -\mathcal{B}\frac{\partial \eta^* }{\partial x^*} + \epsilon F_x^*$$
 
 $$Ro(\frac{\partial v^*}{\partial t^*} 
 + u^*\frac{\partial v^*}{\partial x^*}
 + v^*\frac{\partial v^*}{\partial y^*}) + u^* + \epsilon \beta^*y^*u^* 
-= -\frac{\partial p^* }{\partial y^*} + \epsilon F_y^*$$
+= -\mathcal{B}\frac{\partial \eta^* }{\partial y^*} + \epsilon F_y^*$$
 
-$$\varepsilon \frac{\partial {{\eta }^{*}}}{\partial {{t}^{*}}}
-+\varepsilon \left[ \frac{\partial }{\partial {{x}^{*}}}({{\eta }^{*}}
+$$\epsilon \frac{\partial {{\eta }^{*}}}{\partial {{t}^{*}}}
++\epsilon \left[ \frac{\partial }{\partial {{x}^{*}}}({{\eta }^{*}}
 -{{B}^{*}}){{u}^{*}}+\frac{\partial }{\partial {{y}^{*}}}({{\eta }^{*}}
 -{{B}^{*}}){{v}^{*}} \right]
 =-\left( \frac{\partial {{u}^{*}}}{\partial {{x}^{*}}}
 +\frac{\partial {{v}^{*}}}{\partial {{y}^{*}}} \right)$$
 
-而对于无量纲形式的位势涡度：
+对于零阶的Ro和$\epsilon$，可以得到：
+$$ - v_0^* 
+= -\mathcal{B}\frac{\partial \eta^* }{\partial x^*} $$
+
+$$ u_0^* 
+= -\mathcal{B}\frac{\partial \eta^* }{\partial y^*} $$
+
+$$0
+= \frac{\partial {{u_0}^{*}}}{\partial {{x}^{*}}}
++\frac{\partial {{v_0}^{*}}}{\partial {{y}^{*}}} $$
+
+则有$\mathcal{B}\eta^* = \psi^*$
+
+而对于无量纲形式的位势涡度，取$Ro=\epsilon$：
 \begin{align*}    
-    q^* & =\frac{1+\varepsilon\beta^*y^*+\varepsilon\mathcal{B}\nabla^{*2}\eta^*}{1+\varepsilon(\eta^*-B^*)} \\     
-    & \approx \left[ 1-\varepsilon\left( \eta^*-B^* \right) \right]\left( 1+\varepsilon\beta^*y^*+\varepsilon\mathcal{B}\nabla^{*2}\eta^* \right) \\    
-    & = 1+\varepsilon\beta^*y^*+\varepsilon\mathcal{B}\nabla^{*2}\eta^*-\varepsilon\left( \eta^*-B^* \right) + O(\varepsilon^2) \\    
-    & = 1+\varepsilon\left[ \mathcal{B}\nabla^{*2}\eta^* - \eta^* + \beta^*y^* + B^* \right] + O(\varepsilon^2)
+    q^* & =\frac{1+\epsilon\beta^*y^*+Ro\mathcal{B}\nabla^{*2}\eta^*}{1+\epsilon(\eta^*-B^*)} \\     
+    & \approx \left[ 1-\epsilon\left( \eta^*-B^* \right) \right]\left( 1+\epsilon\beta^*y^*+\epsilon\mathcal{B}\nabla^{*2}\eta^* \right) \\    
+    & = 1+\epsilon\beta^*y^*+\epsilon\mathcal{B}\nabla^{*2}\eta^*-\epsilon\left( \eta^*-B^* \right) + O(\epsilon^2) \\    
+    & = 1+\epsilon\left[ \mathcal{B}\nabla^{*2}\eta^* - \eta^* + \beta^*y^* + B^* \right] + O(\epsilon^2)
 \end{align*}
 
 得到准地转位涡：
 \begin{align*}    
     q^*_{QG} & =\mathcal{B}\nabla^{*2}\eta^* - \eta^* + \beta^*y^* + B^* \\
-        & = \nabla^{*2}\psi^* - \mathcal{B}^-1\psi^* + \beta^*y^*+B^*
+        & = \nabla^{*2}\psi^* - \mathcal{B}^{-1}\psi^* + \beta^*y^*+B^*
 \end{align*}
 
 无量纲位势涡度方程：
@@ -1276,6 +1300,168 @@ $$\beta^*y^*$$
 地形效应：
 $$B^*$$
 
+\subsubsection{斜压下的准地转运动}
+考虑垂向的密度和压强变化：
+$$p = p_r(z) + p_a(x,y,z,t)$$
+$$\rho = \rho_r(z) + \rho_a(x,y,z,t)$$
+
+同浅水模式相似，但考虑垂向分量，做尺度分析：
+\begin{align}
+    &x,y\sim L, \ \ \ u,v\sim V, \ \ \ t\sim \frac{L}{V}\\
+    &z\sim H, \ \ \ w\sim \epsilon\frac{VH}{L}\\
+    &p_a\sim\rho_rVf_0L_0, \ \ \ \rho_a\sim\rho_rV\frac{f_0L}{gH}\\
+    &f\sim f_0, \ \ \ \beta=\frac{df}{dy}\sim \epsilon\frac{f_0}{L}\\
+    &g'\sim\epsilon N^2H, \ \ \ F\sim \epsilon f_0V
+\end{align}
+
+从而将动量方程转化成无量纲的形式：
+$$Ro(\frac{\partial u^*}{\partial t^*} 
++ u^*\frac{\partial u^*}{\partial x^*}
++ v^*\frac{\partial u^*}{\partial y^*}
++ \epsilon w^*\frac{\partial u^*}{\partial z^*})
+  - v^* - \epsilon \beta^*y^*v^* 
+= -\frac{\partial p_a^* }{\partial x^*} + \epsilon F_x^*$$
+
+$$Ro(\frac{\partial v^*}{\partial t^*} 
++ u^*\frac{\partial v^*}{\partial x^*}
++ v^*\frac{\partial v^*}{\partial y^*}
++ \epsilon w^*\frac{\partial v^*}{\partial z^*})
+ + u^* + \epsilon \beta^*y^*u^* 
+= -\frac{\partial p_a^* }{\partial y^*} + \epsilon F_y^*$$
+
+$$\epsilon\delta^2Ro(\frac{\partial w^*}{\partial t^*} 
++ u^*\frac{\partial w^*}{\partial x^*}
++ v^*\frac{\partial w^*}{\partial y^*}
++ \epsilon w^*\frac{\partial w^*}{\partial z^*})
+= (\rho_a^*-\frac{\partial p_a^* }{\partial z^*})(1-\frac{Ro}{\mathcal{B}}) + \epsilon Ro\delta F_z^*$$
+
+$$Ro(\frac{\partial \rho_a^*}{\partial t^*} 
++ u^*\frac{\partial \rho_a^*}{\partial x^*}
++ v^*\frac{\partial \rho_a^*}{\partial y^*}
++ \epsilon w^*\frac{\partial \rho_a^*}{\partial z^*})
++ \mathcal{B}(\frac{\partial {{u}^{*}}}{\partial {{x}^{*}}}
++\frac{\partial {{v}^{*}}}{\partial {{y}^{*}}})
++ \epsilon\mathcal{B}\frac{\partial w^*\rho_r^*}{\partial z^*}
++ \epsilon Ro\frac{\partial w^*\rho_a^*}{\partial z^*}= 0$$
+
+同浅水模式，可以得到零阶为地转模态，而对于一阶的动量方程：
+$$\frac{\partial u_0^*}{\partial t^*} 
++ u_0^*\frac{\partial u_0^*}{\partial x^*}
++ v_0^*\frac{\partial u_0^*}{\partial y^*}
+  - v_1^* - \beta^*y^*v_0^* 
+= -\frac{\partial p_1^* }{\partial x^*} + F_{x0}^*$$
+
+$$\frac{\partial v_0^*}{\partial t^*} 
++ u_0^*\frac{\partial v_0^*}{\partial x^*}
++ v_0^*\frac{\partial v_0^*}{\partial y^*}
+ + u_1^* + \beta^*y^*u_0^* 
+= -\frac{\partial p_1^* }{\partial y^*} + F_{y0}^*$$
+
+$$0
+=\rho_1^* -\frac{\partial p_1^* }{\partial z^*} $$
+
+$$
+\mathcal{B}^{-1}(\frac{\partial \rho_0^*}{\partial t^*} 
++ u^*\frac{\partial \rho_0^*}{\partial x^*}
++ v^*\frac{\partial \rho_0^*}{\partial y^*})
++ \frac{\partial {{u_1}^{*}}}{\partial {{x}^{*}}}
++\frac{\partial {{v_1}^{*}}}{\partial {{y}^{*}}}
++\frac{\partial w_0^*\rho_r^*}{\partial z^*}= 0$$
+
+从而得到零阶涡度方程$\zeta_0 = \frac{\partial v_0^*}{\partial x^*}-
+\frac{\partial u_0^*}{\partial y^*}$：
+
+$$\frac{\partial \zeta_0^*}{\partial t^*} 
++ u_0^*\frac{\partial \zeta_0^*}{\partial x^*}
++ v_0^*\frac{\partial \zeta_0^*}{\partial y^*}
+- \frac{\partial w_0^*\rho_r^*}{\partial z^*}
+- \mathcal{B}^{-1}\left(\frac{\partial \rho_0^*}{\partial t^*} 
++ u^*\frac{\partial \rho_0^*}{\partial x^*}
++ v^*\frac{\partial \rho_0^*}{\partial y^*}\right)
++ \beta^*v_0^*
+=  \hat{k}\cdot\nabla\times F_{x0}^*$$
+
+在海洋中，考虑状态方程：
+$$\frac{\partial \rho_a}{\partial t} 
++ u\frac{\partial \rho_a}{\partial x}
++ v\frac{\partial \rho_a}{\partial y}
+- \frac{\rho_0N^2}{g}w = 
+\alpha_0\frac{\partial G}{\partial z}
++\beta_0\frac{\partial J}{\partial z}$$
+
+其中G和J分别表示温度和盐度过程，无量纲化后得到：
+$$Ro(\frac{\partial \rho_a^*}{\partial t^*} 
++ u^*\frac{\partial \rho_a^*}{\partial x^*}
++ v^*\frac{\partial \rho_a^*}{\partial y^*})
++ \epsilon\mathcal{B}w^* \frac{\partial \rho_r^*}{\partial z^*} = 
+\epsilon\mathcal{B}(\alpha_0^*\frac{\partial G^*}{\partial z^*}
++\beta_0^*\frac{\partial J^*}{\partial z^*}) = \epsilon\mathcal{B}\mathcal{H}$$
+
+取零阶，从而得到：
+$$w_0^* = \frac{1}{\frac{\partial \rho_r^*}{\partial z^*}}
+(\mathcal{H}-\mathcal{B}^{-1}(\frac{\partial \rho_0^*}{\partial t^*} 
++ u_0^*\frac{\partial \rho_0^*}{\partial x^*}
++ v_0^*\frac{\partial \rho_0^*}{\partial y^*}))$$
+
+忽略外力输入，从而：
+\begin{align}
+\frac{\partial w_0^*\rho_r^*}{\partial z^*}
+&=-\mathcal{B}^{-1}\frac{\partial}{\partial z^*}
+\left( \frac{\rho_r^*}{\frac{\partial \rho_r^*}{\partial z^*}}
+(\frac{\partial \rho_0^*}{\partial t^*} 
++ u_0^*\frac{\partial \rho_0^*}{\partial x^*}
++ v_0^*\frac{\partial \rho_0^*}{\partial y^*})\right)\\
+&= -\mathcal{B}^{-1}(\frac{\partial \rho_0^*}{\partial t^*} 
++ u_0^*\frac{\partial \rho_0^*}{\partial x^*}
++ v_0^*\frac{\partial \rho_0^*}{\partial y^*})\\
+&-\mathcal{B}^{-1}(\rho_r^*
+(\frac{\partial }{\partial t^*}\frac{\partial}{\partial z^*}(\frac{\rho_0^*}{\frac{\partial \rho_r^*}{\partial z^*}})
++ u_0^*\frac{\partial }{\partial x^*}\frac{\partial}{\partial z^*}(\frac{\rho_0^*}{\frac{\partial \rho_r^*}{\partial z^*}})
++ v_0^*\frac{\partial }{\partial y^*}\frac{\partial}{\partial z^*}(\frac{\rho_0^*}{\frac{\partial \rho_r^*}{\partial z^*}})))\\
+& - \mathcal{B}^{-1}(\rho_r^*\frac{\partial}{\partial z^*}
+( \frac{\partial u_0^*}{\partial z^*}\frac{\partial }{\partial x^*}(\frac{\rho_0^*}{\frac{\partial \rho_r^*}{\partial z^*}})
++ \frac{\partial v_0^*}{\partial z^*}\frac{\partial }{\partial y^*}(\frac{\rho_0^*}{\frac{\partial \rho_r^*}{\partial z^*}})))
+\end{align}
+
+根据热成风关系：
+$$\frac{\partial u_0^*}{\partial z^*} 
+= -\frac{\partial \rho_0^*}{\partial y^*}$$
+$$\frac{\partial v_0^*}{\partial z^*} 
+= \frac{\partial \rho_0^*}{\partial x^*}$$
+
+从而涡度方程变为：
+$$\frac{d }{d t_0^*}(\zeta_0^*+ \beta^*y^*
++ \mathcal{B}^{-1}\rho_r^*\frac{\partial}{\partial z^*}(\frac{\rho_0^*}{\frac{\partial \rho_r^*}{\partial z^*}}))
+=  0$$
+
+有流函数$\psi^* = p_a^*$，则$\frac{\partial \psi^*}{\partial z^*}=\rho_a^*$
+
+从而涡度方程变为：
+$$\frac{d }{d t_0^*}(\nabla^2\psi^* + \beta^*y^*
++ \mathcal{B}^{-1}\rho_r^*\frac{\partial}{\partial z^*}
+(\frac{1}{\frac{\partial \rho_r^*}{\partial z^*}}
+\frac{\partial \psi^*}{\partial z^*}))
+=  0$$
+
+它的有量纲形式为：
+$$\frac{d }{d t_g}(\nabla^2\psi + \beta y
++ \frac{\partial}{\partial z}
+(\frac{f_0^2}{N^2}
+\frac{\partial \psi}{\partial z}))
+=  0$$
+
+得到斜压下的准地转位涡：
+$$q_{QG} = \nabla^2\psi + \beta y + (\frac{f_0^2}{N^2}
+\frac{\partial \psi}{\partial z})$$
+
+对于状态方程，我们考虑$\frac{\partial \psi^*}{\partial z^*}=\rho_a^*$，有：
+$$\frac{\partial }{\partial t^*}\frac{\partial \psi^*}{\partial z^*}
++ u^*\frac{\partial }{\partial x^*}\frac{\partial \psi^*}{\partial z^*}
++ v^*\frac{\partial }{\partial y^*}\frac{\partial \psi^*}{\partial z^*}
++ \epsilon\mathcal{B}w_0^* \frac{\partial \rho_r^*}{\partial z^*} = 0$$
+
+有浮力$b^* = \frac{\partial \psi^*}{\partial z^*}$，从而得到浮力的控制方程：
+$$\frac{db}{dt_g}+N^2w=0$$
 
 \subsection{Rossby波}
 Rossby波（行星波）是由于地球旋转时$\beta$效应而产生的，同样，由于下边界斜率$\nabla B$而形成的准地转波称为地形Rossby波。
@@ -1572,9 +1758,11 @@ $m=2$表示第二斜压模，$G$在垂直方向上变号两次；
     \includegraphics[width=10cm]{Fig4_2.png}
 \end{center}
 
+
 \subsection{斜压不稳定}
 斜压不稳定：在具有垂直切变的基流中产生的长波不稳定现象。本节将使用二层准地转模式来探讨具有垂直切变的平均纬向流的稳定性问题。
 
+\subsubsection{Phillips二层模型（1954）}
 两层流体中的平均纬向斜压流体:
 $$u=\begin{cases}
     U \ (H/2<z<H) \\
@@ -1722,6 +1910,192 @@ $$\frac{d\overline{\eta }}{dy} = -\frac{H\alpha g}{2g^{\prime}}\frac{d\overline{
 (1)由于受到涡动热通量的影响，经向温度梯度有所减弱；
 
 (2)一部分与经向温度梯度有关的平均有效位能转变为涡流能量。
+
+\subsubsection{Charney模型（1947）}
+考虑如下形式的准地转位涡：
+$$q_{QG} = \nabla^2\psi + \beta y 
++ \frac{f^2}{\rho_r}\frac{\partial }{\partial z}
+(\frac{\rho_r}{N^2}\frac{\partial \psi}{\partial z})$$
+
+和Eady模型相同的假设，设平均场$\overline{u} = \overline{u}(z) = \lambda (z+D)$，忽略$\beta$效应，
+且$N^2=Const$。
+
+定义密度特征高度：
+$$\frac{1}{H} = -\frac{1}{\rho_r}\frac{\partial \rho_r}{\partial z}$$
+
+则平均准地转位涡：
+$$\overline{q}_{QG} = \beta y + \frac{f^2\lambda}{N^2H} y 
+= \beta y\left(1 + \frac{H\lambda}{\beta R^2}\right)
+= \beta y\left(1 + \frac{1}{\gamma}\right)
+= \hat{\beta} y$$
+
+得到Charney-Green数：
+$$\gamma = \frac{\beta R^2}{H\lambda}$$
+
+那么，对于线性化的位涡方程：
+$$\frac{\partial q_{QG}}{\partial t}+J[\psi,q_{QG}] = 0$$
+$$\Rightarrow \frac{\partial q'_{QG}}{\partial t}
++\overline{u}\frac{\partial q'_{QG}}{\partial x}
++\frac{\partial \psi'}{\partial x}
+\frac{\partial \overline{q}_{QG}}{\partial y} = 
+(\frac{\partial}{\partial t}
++\overline{u}\frac{\partial }{\partial x})(\nabla^2\psi' + 
+\frac{f^2}{N^2}\frac{\partial^2 \psi'}{\partial z^2}
+- \frac{f^2}{N^2H}\frac{\partial \psi'}{\partial z}) 
++ \hat{\beta}\frac{\partial \psi'}{\partial x}=0$$
+
+有限宽度边界条件：
+$$\frac{\partial \psi}{\partial x} = 0 \ \ \ y = y_1, y_2$$
+
+刚性上边界边界条件：
+$$(\frac{\partial }{\partial t}
++\overline{u}\frac{\partial}{\partial x})
+\frac{\partial \psi'}{\partial z}
+- \frac{\partial \psi'}{\partial x}\frac{\partial \overline{u}}{\partial z}
+=0$$
+
+取$\psi' = \Psi(z)e^{i(kx+ly-\omega t)}$，代入解得：
+$$\psi' = \Psi(z)sin(l(y-y_1))e^{i(kx-\omega t)}$$
+$$\frac{d^2\Psi}{dz^2} - \frac{1}{H}\frac{d\Psi}{dz} 
+- \frac{N^2}{f^2}(k^2+l^2+\frac{\hat{\beta}}{c-\overline{u}})\Psi = 0$$
+
+以及边界条件，在z=0和z=-D处：
+$$(-c+\lambda D)\frac{d\Psi}{dz} - \lambda\Psi = 0$$
+$$-c\frac{d\Psi}{dz} - \lambda\Psi = 0$$
+
+对于该式，考虑在奇点$\overline{u}(z_c) = c$，以Frobenius方法展开，
+可以得到：
+$$\Psi = c_1A_1 + c_2A_2$$
+
+其中：
+$$A_1(z) = \Sigma_{n=1}^{\infty}a_n(z-z_c)^n$$
+$$A_2(z) = kA_1(z)ln(z-z_c)
++\Sigma_{n=0}^{\infty}b_n(z-z_c)^n$$
+
+其中$a_n,b_n$由微分方程中的各项系数确定，代入原式可以解得：
+$$k = -\frac{\gamma + 1}{H}\frac{b_0}{a_1}$$
+
+因此，观察到考虑如下形式的通解：
+$$\Psi = (z-z_c)e^{\nu z}F(z)$$
+
+由于$z\rightarrow -\infty, d\Psi/dz\rightarrow 0$，得到：
+$$\nu = \frac{1}{2H}\left(1+\sqrt{1+4K^2R^2}\right)$$
+
+以及方程：
+$$\xi\frac{d^2F}{d\xi^2} + (2+\xi)\frac{dF}{d\xi} + (1+r)F = 0$$
+
+其中：
+$$\xi = \sqrt{1+4K^2R^2}\frac{z-z_c}{H}$$
+$$r = \frac{\gamma+1}{\sqrt{1+4K^2R^2}}$$
+
+得到的无量纲常微分方程为超几何分布常微分方程，其通解写为：
+$$F = c_1F_1(-r-1, 2, -\xi) + c_2F_2(-r-1, 2, -\xi)$$
+
+当$\xi\rightarrow-\infty$两个函数可以近似为：
+$$F_1(-r-1, 2, -\xi) \sim \frac{2(-\xi)^{-r-3}}{\Gamma(-r-1)}e^{-\xi}$$
+$$F_2(-r-1, 2, -\xi) \sim (-\xi)^{r+1}$$
+
+得到通解：
+$$\Psi_1  = (z-z_c)e^{\nu z}F_1 \sim
+(z-z_c)^{-r-2}exp\left[\left(1-\sqrt{1+4K^2R^2}\right)\frac{z}{2H}\right]$$
+$$\Psi_2  = (z-z_c)e^{\nu z}F_2 \sim
+(z-z_c)^{r+2}exp\left[\left(1+\sqrt{1+4K^2R^2}\right)\frac{z}{2H}\right]$$
+
+根据r的定义可知$r>0$恒成立，当r不为整数时，$\Psi_1\rightarrow\infty$，
+不符合条件，因此$c_1=0$，F项只包含$F_2$。
+当r为正整数时，$F_1$变为一个简单的多项式，而此时$F_2$的表达式改变，且趋于无穷，
+从而，F可以写为：
+$$F=\begin{cases}
+c_1F_1  \ \ \ r=N\\
+c_2F_2 \ \ \ r\ne N\\
+\end{cases}$$
+
+在海洋中，考虑$H\ll D$，因此$\xi\rightarrow0$，此时：
+$$F_1\rightarrow1$$
+$$F_2\rightarrow\frac{1}{\xi}$$
+
+当r为整数时，有：
+$$\Psi \sim (z-z_c)e^{\nu z}$$
+
+当r不为整数时，有：
+$$\Psi \sim e^{\nu z}$$
+
+因此可以得到Charney型不稳定的结构式从表层向深层衰减的。
+相似的，如果考虑海底z=0，平均场$\overline{u} = \lambda z$，
+可以的到底部增强的Charney型不稳定结构。
+
+\subsubsection{Eady模型（1949）}
+Eady模型是Charney模型的简单情况，
+常出现在南极绕极流的区域：纬向一致的狭窄平均流。
+设平均场$\overline{u} = \overline{u}(z) = \lambda (z+D)$，忽略$\beta$效应，
+且$N^2=Const$。
+从而准地转位涡：$\overline{q}_{QG} = 0$
+那么，对于线性化的位涡方程：
+$$\frac{\partial q_{QG}}{\partial t}+J[\psi,q_{QG}] = 0$$
+$$\Rightarrow \frac{\partial q'_{QG}}{\partial t}
++\overline{u}\frac{\partial q'_{QG}}{\partial x} = 
+(\frac{\partial}{\partial t}
++\overline{u}\frac{\partial }{\partial x})(\nabla^2\psi' + 
+\frac{f^2}{N^2}\frac{\partial^2 \psi'}{\partial z^2})=0$$
+
+有限宽度边界条件：
+$$\frac{\partial \psi}{\partial x} = 0 \ \ \ y = y_1, y_2$$
+
+刚性上边界边界条件：
+$$(\frac{\partial }{\partial t}
++\overline{u}\frac{\partial}{\partial x})
+\frac{\partial \psi'}{\partial z}
+- \frac{\partial \psi'}{\partial x}\frac{\partial \overline{u}}{\partial z}
+=0$$
+
+取$\psi' = \Psi(z)e^{i(kx+ly-\omega t)}$，代入解得：
+$$\psi' = \Psi(z)sin(l(y-y_1))e^{i(kx-\omega t)}$$
+$$(\overline{u} - c)
+[\frac{d^2\Psi}{dz^2} - \frac{N^2}{f^2}(k^2+l^2)\Psi] =0$$
+
+其中，$l = \frac{n\pi}{y_1 - y_2}$。
+
+在z=0和z=-D处：
+$$(\frac{\partial }{\partial t}
++\lambda D\frac{\partial}{\partial x})
+\frac{\partial \psi'}{\partial z}
+- \lambda\frac{\partial \psi'}{\partial x}
+=0$$
+
+$$\frac{\partial }{\partial t}
+\frac{\partial \psi'}{\partial z}
+- \lambda\frac{\partial \psi'}{\partial x}
+=0$$
+
+代入扰动解：
+$$-(c-\lambda D)
+\frac{d\Psi}{dz}
+- \lambda\Psi
+=0$$
+
+$$-c\frac{d\Psi}{dz}
+- \lambda\Psi
+=0$$
+
+令$\mu^2 = \frac{N^2}{f^2}(k^2+l^2)$，得到：
+$$c^2 - \lambda Dc +\frac{\lambda^2D}{\mu}coth(\mu D) 
+-\frac{\lambda^2}{\mu^2} = 0$$
+
+解得相速度：
+$$c = \frac{\lambda D}{2} \pm \frac{\lambda D}{2}
+\sqrt{1-\frac{4}{\mu D}coth(\mu D) + \frac{4}{(\mu D)^2}}$$
+
+此时扰动的结构为：
+$$\Psi(z) = B(\frac{\mu}{\lambda}(\lambda D-c)cosh(\mu z) + sinh(\mu z))$$
+$$\Psi(z) = B\left(\frac{\mu D}{2} 
+\pm \frac{\mu D}{2}
+\sqrt{1-\frac{4}{\mu D}coth(\mu D) + \frac{4}{(\mu D)^2}}\right)
+cosh(\mu z) + Bsinh(\mu z)$$
+
+扰动在顶部和底部达到振幅最大值，相位由下向上增大。
+\begin{center}
+    \includegraphics[width=0.6\linewidth]{Fig5_5.png}
+\end{center}
 
 
 \subsection{扰动的斜压纬向急流}
